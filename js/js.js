@@ -1,6 +1,8 @@
 const show = document.querySelector('.nav-dropdown-link');
 const menu = document.querySelector('.nav-dropdown-menu');
 
+//click on dropdownmenu
+
 show.addEventListener('click', function (e) {
     e.preventDefault();
     menu.classList.toggle('show');
@@ -17,6 +19,8 @@ const page = document.querySelectorAll('.section-main-container');
 const form = document.querySelector('.nav-form');
 const input = document.querySelector('.nav-form-search');
 const logo = document.querySelector('.nav-link');
+
+//search input
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -37,6 +41,8 @@ form.addEventListener('submit', function (e) {
     }
 
 });
+
+//click on logo
 
 logo.addEventListener('click', function () {
     container.classList.remove('hide');

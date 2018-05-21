@@ -15,10 +15,10 @@
     <div class="nav-menu" id="menu">
         <ul class="nav-menu-list">
             <li class="nav-menu-list-home">
-                <a class="nav-menu-list-link" href="#home">Home</a>
+                <a class="nav-menu-list-link" href="#start" name="start">Start</a>
             </li>
             <li class="nav-menu-list-about">
-                <a class="nav-menu-list-link" href="#about">About</a>
+                <a class="nav-menu-list-link" href="#about" name="about">About</a>
             </li>
             <li class="nav-menu-list-contact">
                 <a class="nav-menu-list-link" href="#contact">Contact</a>
@@ -39,16 +39,17 @@
     </div>
 </nav>
 <div class="main">
-    <div class="container">
+    <div class="container" id="start">
         <div class="main-container">
+
             <h1 class="main-container-header">Hello, world!</h1>
-            <p class="main-container-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto distinctio quas saepe totam ut! Alias asperiores enim est exercitationem hic iusto minima nemo numquam placeat, quos soluta, tempora voluptates.</p>
+            <p class="main-container-text" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto distinctio quas saepe totam ut! Alias asperiores enim est exercitationem hic iusto minima nemo numquam placeat, quos soluta, tempora voluptates.</p>
             <p><a class="main-container-link" href="#">Learn more &raquo;</a></p>
         </div>
     </div>
 
 
-    <div class="section">
+    <div class="section" id="about">
         <div class="section-main-container">
             <h2 class="section-main-container-title">Lorem</h2>
             <p class="section-main-container-text">
@@ -70,6 +71,15 @@
             </p>
             <a class="section-main-container-link" href="#">View on GitHub &raquo;</a>
         </div>
+    </div>
+    <div id="contact">
+        <h2>Contact</h2>
+        <form>
+            <input type="text">
+            <input type="text">
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <button type="submit">Submit</button>
+        </form>
     </div>
 </div>
 
