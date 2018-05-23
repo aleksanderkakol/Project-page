@@ -70,31 +70,38 @@ var mouse = {
     x:undefined,
     y:undefined
 };
-var numStars = 800;
+var numStars = 2000;
 var stars = [];
 var size = 1;
 var fl = canvas.width;
 var centerX = canvas.width/2;
 var centerY = canvas.width/2;
-var speed = 3;
-var maxRadius = 50;
+var speed = 5;
+var maxRadius = 10;
 var minRadius = 2;
 
 
 window.addEventListener('mousemove', function (event) {
-    mouse.x = event.x + document.documentElement.scrollLeft;
-    mouse.y = event.y + document.documentElement.scrollTop;
+    // mouse.x = event.x + document.documentElement.scrollLeft;
+    mouse.x = event.x;
+    // mouse.y = event.y + document.documentElement.scrollTop;
+    mouse.y = event.y;
+
 
     // console.log(mouse);
 });
 
 
 
-function Star() {
+function Star(x, y, s, a, b) {
+
 
     this.x = Math.random()*(innerWidth - size * 2) + size;
     this.y = Math.random()*(innerHeight - size * 2) + size;
     this.z = Math.random()*(innerWidth - size * 2) + size;
+
+    this.a = a;
+    this.b = b;
 
     this.move = function () {
 
@@ -106,7 +113,11 @@ function Star() {
 
 
     this.show = function () {
-        var x,y,s;
+
+        var x = 0;
+        var y = 0;
+        var s = this.s;
+
         x = (this.x -centerX)*(fl/this.z);
         x = x + centerX;
 
@@ -114,73 +125,58 @@ function Star() {
         y = (this.y -centerY)*(fl/this.z);
         y = y + centerY;
 
+        this.s = size*(fl/this.z);
+        // s = size*(fl/this.z);
 
-        s = size*(fl/this.z);
+
+
+
+        if (mouse.x - this.x < 50 && mouse.x - this.x > -50 && mouse.y - this.y < 50 && mouse.y - this.y > -50) {
+            if (this.s < maxRadius){
+                this.s +=4;
+            }
+        } else if (this.s > this.minRadius) {
+            this.s -= 1;
+        }
 
         c.beginPath();
         c.fillStyle = 'white';
-        c.arc(x, y, s, 0, Math.PI*2);
+        c.arc(x, y, this.s, 0, Math.PI*2);
         c.fill();
 
 
-    };
 
+    };
 
     this.update = function () {
-        // console.log(mouse)
-        if (mouse.x - this.x < 50 && mouse.x - this.x > -50 && mouse.y - this.y < 50 && mouse.y - this.y > -50) {
-            if (this.size < maxRadius){
-                this.size +=1;
-            }
-        } else if (this.size > this.minRadius) {
-            this.size -= 1;
-        }
+
+
+        this.show()
 
     };
-    // draw();
-}
-
-function draw() {
-    c.fillStyle = 'black';
-    c.fillRect(0,0,window.innerWidth, window.innerHeight);
-    for (var i=0; i<numStars; i++) {
-
-        stars[i].show();
-        stars[i].move();
-
-    }
 
 }
 
 for (var i=0; i<numStars; i++) {
-    stars[i] = new Star();
+    stars.push(new Star());
 }
 
-
 function animate() {
-    draw();
-    window.requestAnimationFrame(animate);
-
-    for (var i=0; i<stars.length; i++) {
+    c.fillStyle = 'black';
+    c.fillRect(0,0,window.innerWidth, window.innerHeight);
+    for (var i=0; i<numStars; i++) {
+        stars[i].move();
         stars[i].update();
     }
+    window.requestAnimationFrame(animate);
 }
 
 animate();
 
-// function animate() {
-//     window.requestAnimationFrame(animate);
+/////////////////////////////////////////////////////
+
 //
-// }
 //
-// animate();
-
-
-
-
-
-
-
 // var mouse = {
 //     x: undefined,
 //     y: undefined
@@ -242,6 +238,8 @@ animate();
 //
 //
 //         //mousemove
+//
+//
 //         if (mouse.x - this.x < 50 && mouse.x - this.x > -50 && mouse.y - this.y < 50 && mouse.y - this.y > -50) {
 //             if (this.radius < maxRadius){
 //             this.radius +=1;
@@ -253,7 +251,7 @@ animate();
 //
 //
 //         this.draw();
-    // }
+//     }
 //
 // }
 //
