@@ -66,36 +66,32 @@ canvas.height = window.innerHeight;
 var c = canvas.getContext('2d');
 
 
-
-var numStars = 200;
+var mouse = {
+    x:undefined,
+    y:undefined
+};
+var numStars = 800;
 var stars = [];
 var size = 1;
 var fl = canvas.width;
 var centerX = canvas.width/2;
 var centerY = canvas.width/2;
 var speed = 3;
+var maxRadius = 50;
+var minRadius = 2;
 
 
-var mouse = {
-    x: undefined,
-    y: undefined
-};
-
-canvas.addEventListener('mousemove', function (event) {
+window.addEventListener('mousemove', function (event) {
     mouse.x = event.x + document.documentElement.scrollLeft;
     mouse.y = event.y + document.documentElement.scrollTop;
-    // console.log(event)
-});
-canvas.addEventListener('click', function () {
-    speed+=10;
+
+    // console.log(mouse);
 });
 
 
-for (var i=0; i<numStars; i++) {
-    stars[i] = new Star();
-}
 
 function Star() {
+
     this.x = Math.random()*(innerWidth - size * 2) + size;
     this.y = Math.random()*(innerHeight - size * 2) + size;
     this.z = Math.random()*(innerWidth - size * 2) + size;
@@ -106,9 +102,7 @@ function Star() {
         if (this.z<=0){
             this.z = canvas.width;
         }
-
     };
-
 
 
     this.show = function () {
@@ -127,27 +121,64 @@ function Star() {
         c.fillStyle = 'white';
         c.arc(x, y, s, 0, Math.PI*2);
         c.fill();
-    }
+
+
+    };
+
+
+    this.update = function () {
+        // console.log(mouse)
+        if (mouse.x - this.x < 50 && mouse.x - this.x > -50 && mouse.y - this.y < 50 && mouse.y - this.y > -50) {
+            if (this.size < maxRadius){
+                this.size +=1;
+            }
+        } else if (this.size > this.minRadius) {
+            this.size -= 1;
+        }
+
+    };
+    // draw();
 }
 
-
 function draw() {
-
     c.fillStyle = 'black';
     c.fillRect(0,0,window.innerWidth, window.innerHeight);
     for (var i=0; i<numStars; i++) {
 
         stars[i].show();
         stars[i].move();
+
     }
 
 }
 
-function update() {
-    draw();
-    window.requestAnimationFrame(update);
+for (var i=0; i<numStars; i++) {
+    stars[i] = new Star();
 }
-update();
+
+
+function animate() {
+    draw();
+    window.requestAnimationFrame(animate);
+
+    for (var i=0; i<stars.length; i++) {
+        stars[i].update();
+    }
+}
+
+animate();
+
+// function animate() {
+//     window.requestAnimationFrame(animate);
+//
+// }
+//
+// animate();
+
+
+
+
+
 
 
 // var mouse = {
