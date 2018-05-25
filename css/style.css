@@ -6,13 +6,16 @@ body {
   padding: 0;
 }
 
-canvas {
-  margin: 0;
-  padding: 0;
-  border: 0;
+
+.animation {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
 }
 
-
+#canvas {
+  display: block;
+}
 
 .main {
   padding: 0;
@@ -27,10 +30,6 @@ canvas {
   padding: .5rem 1rem;
   color: #212529;
   background-color: #343a40;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
 }
 
 .nav-menu {
@@ -257,4 +256,11 @@ canvas {
 
 .show {
   display: inline-block;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 }

@@ -55,15 +55,54 @@ logo.addEventListener('click', function () {
 
 });
 
+
+const navBar = document.querySelector('.nav-bar');
+const scrollDown = navBar.offsetTop;
+
+window.addEventListener('scroll', function () {
+    console.log(document.documentElement.scrollTop+'==='+scrollDown)
+   if (document.documentElement.scrollTop >= scrollDown) {
+       document.body.style.paddingTop = navBar.offsetHeight + 'px';
+       navBar.classList.add('fixed');
+   } else {
+       document.body.style.paddingTop = '0';
+       navBar.classList.remove('fixed');
+   }
+});
+
+
+
 //canvas
 
 const canvas = document.querySelector('canvas');
 
 
-canvas.width = window.innerWidth -15;
+const screenWidth = document.documentElement.clientWidth;
+
+canvas.width = screenWidth;
 canvas.height = window.innerHeight;
 
 const c = canvas.getContext('2d');
+
+
+
+
+
+c.fillStyle = 'hsl (25, 100%, 50%)';
+c.font = 'normal bold 2em "Arial"';
+
+var text = 'Hello World!';
+var i =1;
+
+var width = innerWidth/2;
+
+function write() {
+    c.fillStyle = 'yellow';
+    c.fillText(text.substr(0,i),width,innerHeight/2);
+    c.textAlign = 'center';
+    c.textBaseline = 'middle';
+    i+=0.3;
+}
 
 
 let mouse = {
@@ -166,6 +205,7 @@ function animate() {
         stars[i].move();
         stars[i].update();
     }
+    write();
     window.requestAnimationFrame(animate);
 }
 
