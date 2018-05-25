@@ -57,51 +57,48 @@ logo.addEventListener('click', function () {
 
 //canvas
 
-var canvas = document.querySelector('canvas');
+const canvas = document.querySelector('canvas');
 
 
 canvas.width = window.innerWidth -15;
 canvas.height = window.innerHeight;
 
-var c = canvas.getContext('2d');
+const c = canvas.getContext('2d');
 
 
-var mouse = {
+let mouse = {
     x:undefined,
     y:undefined
 };
-var numStars = 2000;
-var stars = [];
-var size = 1;
-var fl = canvas.width;
-var centerX = canvas.width/2;
-var centerY = canvas.width/2;
-var speed = 5;
-var maxRadius = 10;
-var minRadius = 2;
-
+const numStars = 3000;
+let stars = [];
+let size = 1;
+let fl = canvas.width;
+let centerX = canvas.width/2;
+let centerY = canvas.width/2;
+let speed = 1;
+const maxRadius = 10;
+const minRadius = 2;
+const distance = 80;
 
 window.addEventListener('mousemove', function (event) {
-    // mouse.x = event.x + document.documentElement.scrollLeft;
-    mouse.x = event.x;
-    // mouse.y = event.y + document.documentElement.scrollTop;
-    mouse.y = event.y;
-
+    mouse.x = event.x + document.documentElement.scrollLeft;
+    mouse.y = event.y + document.documentElement.scrollTop;
 
     // console.log(mouse);
 });
 
 
-
-function Star(x, y, s, a, b) {
+///stars
+function Star() {
 
 
     this.x = Math.random()*(innerWidth - size * 2) + size;
     this.y = Math.random()*(innerHeight - size * 2) + size;
     this.z = Math.random()*(innerWidth - size * 2) + size;
 
-    this.a = a;
-    this.b = b;
+
+    ////move
 
     this.move = function () {
 
@@ -114,30 +111,28 @@ function Star(x, y, s, a, b) {
 
     this.show = function () {
 
-        var x = 0;
-        var y = 0;
-        var s = this.s;
+        let x,y;
 
         x = (this.x -centerX)*(fl/this.z);
         x = x + centerX;
-
 
         y = (this.y -centerY)*(fl/this.z);
         y = y + centerY;
 
         this.s = size*(fl/this.z);
-        // s = size*(fl/this.z);
 
 
+/////mousemove
 
-
-        if (mouse.x - this.x < 50 && mouse.x - this.x > -50 && mouse.y - this.y < 50 && mouse.y - this.y > -50) {
+        if (mouse.x - x < distance && mouse.x - x > -distance && mouse.y - y < distance && mouse.y - y > -distance) {
             if (this.s < maxRadius){
-                this.s +=4;
+                this.s +=1;
             }
-        } else if (this.s > this.minRadius) {
+        } else if (this.s > minRadius) {
             this.s -= 1;
         }
+
+////////show stars
 
         c.beginPath();
         c.fillStyle = 'white';
@@ -150,21 +145,24 @@ function Star(x, y, s, a, b) {
 
     this.update = function () {
 
-
         this.show()
 
     };
 
 }
 
-for (var i=0; i<numStars; i++) {
+//////get stars
+
+for (let i=0; i<numStars; i++) {
     stars.push(new Star());
 }
+
+
 
 function animate() {
     c.fillStyle = 'black';
     c.fillRect(0,0,window.innerWidth, window.innerHeight);
-    for (var i=0; i<numStars; i++) {
+    for (let i=0; i<numStars; i++) {
         stars[i].move();
         stars[i].update();
     }
