@@ -60,7 +60,7 @@ const navBar = document.querySelector('.nav-bar');
 const scrollDown = navBar.offsetTop;
 
 window.addEventListener('scroll', function () {
-    console.log(document.documentElement.scrollTop+'==='+scrollDown)
+    // console.log(document.documentElement.scrollTop+'==='+scrollDown)
    if (document.documentElement.scrollTop >= scrollDown) {
        document.body.style.paddingTop = navBar.offsetHeight + 'px';
        navBar.classList.add('fixed');
@@ -124,6 +124,32 @@ window.addEventListener('mousemove', function (event) {
 
     // console.log(mouse);
 });
+
+let up = true;
+const maxSpeed = 30;
+const minSpeed = 0.5;
+
+
+canvas.addEventListener('click', function () {
+        if (up && speed <= maxSpeed) {
+            speed++;
+            if (speed === maxSpeed) {
+                up = false;
+            }
+        } else {
+            up = false;
+            speed--;
+            if (speed <= minSpeed) {
+                up = true;
+            }
+        }
+});
+
+canvas.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    speed = 0.5;
+});
+
 
 
 ///stars
