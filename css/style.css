@@ -28,18 +28,22 @@ body {
 
 .flex:hover {
   background-color: white;
-  color:  black;
 }
 
 .flex-link {
-  padding: 50px;
+  padding: 20px 50px;
   line-height: 2;
   text-decoration: none;
   color: white;
-  font-size: 2rem
+  font-size: 2rem;
+  outline: none;
 }
 
 .flex-link:hover {
+  color: black;
+}
+
+.flex-link:focus {
   color: black;
 }
 
