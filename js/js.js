@@ -71,6 +71,24 @@ window.addEventListener('scroll', function () {
 });
 
 
+////anchor click
+
+
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth',
+            block: "start"
+        });
+    });
+});
+
+
+
+
 
 //canvas
 
@@ -85,26 +103,6 @@ canvas.height = window.innerHeight;
 const c = canvas.getContext('2d');
 
 
-
-
-
-c.fillStyle = 'hsl (25, 100%, 50%)';
-c.font = 'normal bold 2em "Arial"';
-
-var text = 'Hello World!';
-var i =1;
-
-var width = innerWidth/2;
-
-function write() {
-    c.fillStyle = 'yellow';
-    c.fillText(text.substr(0,i),width,innerHeight/2);
-    c.textAlign = 'center';
-    c.textBaseline = 'middle';
-    i+=0.3;
-}
-
-
 let mouse = {
     x:undefined,
     y:undefined
@@ -115,7 +113,7 @@ let size = 1;
 let fl = canvas.width;
 let centerX = canvas.width/2;
 let centerY = canvas.width/2;
-let speed = 1;
+let speed = 0.5;
 const maxRadius = 10;
 const minRadius = 2;
 const distance = 80;
@@ -199,13 +197,12 @@ for (let i=0; i<numStars; i++) {
 
 
 function animate() {
-    c.fillStyle = 'black';
+    c.fillStyle = '#343a40';
     c.fillRect(0,0,window.innerWidth, window.innerHeight);
     for (let i=0; i<numStars; i++) {
         stars[i].move();
         stars[i].update();
     }
-    write();
     window.requestAnimationFrame(animate);
 }
 
