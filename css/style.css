@@ -44,10 +44,6 @@ body {
   color: black;
 }
 
-.flex-link:focus {
-  color: black;
-}
-
 #canvas {
   display: block;
 }
