@@ -154,6 +154,7 @@ canvas.addEventListener('click', function () {
 
 canvas.addEventListener('contextmenu', function (e) {
     e.preventDefault();
+    up = true;
     speed = 0.5;
 });
 
@@ -163,7 +164,7 @@ window.addEventListener('resize', function () {
      canvas.width = window.innerWidth;
      canvas.height = window.innerHeight;
 
-     Star();
+     animate();
 
  });
 
