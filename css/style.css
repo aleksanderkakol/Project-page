@@ -24,6 +24,7 @@ body {
   /*padding: 20px 50px;*/
   border: 2px solid white;
   transition: 1s;
+  z-index: 10;
 }
 
 .flex:hover {
@@ -37,6 +38,7 @@ body {
   color: white;
   font-size: 2rem;
   user-select: none;
+  z-index: 10;
 }
 
 .flex-link:hover {
