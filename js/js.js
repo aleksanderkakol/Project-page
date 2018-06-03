@@ -107,7 +107,7 @@ let mouse = {
     x:undefined,
     y:undefined
 };
-const numStars = 100;
+const numStars = 10;
 let stars = [];
 let size = 1;
 let fl = canvas.width;
