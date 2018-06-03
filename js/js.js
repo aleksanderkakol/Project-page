@@ -102,6 +102,7 @@ canvas.height = window.innerHeight;
 
 const c = canvas.getContext('2d');
 
+//mouse move
 
 let mouse = {
     x:undefined,
@@ -125,6 +126,9 @@ window.addEventListener('mousemove', function (event) {
     // console.log(mouse);
 });
 
+//left click
+
+
 let up = true;
 const maxSpeed = 30;
 const minSpeed = 0.5;
@@ -145,12 +149,23 @@ canvas.addEventListener('click', function () {
         }
 });
 
+
+// right click
+
 canvas.addEventListener('contextmenu', function (e) {
     e.preventDefault();
     speed = 0.5;
 });
 
+//resize window
 
+window.addEventListener('resize', function () {
+     canvas.width = window.innerWidth;
+     canvas.height = window.innerHeight;
+
+     Star();
+
+ });
 
 ///stars
 function Star() {
