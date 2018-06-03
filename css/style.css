@@ -43,6 +43,14 @@ body {
   color: black;
 }
 
+.flex-link:visited {
+  padding: 20px 50px;
+  line-height: 2;
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+}
+
 #canvas {
   display: block;
 }
