@@ -13,12 +13,10 @@
 
 <div class="animation">
     <canvas id="canvas"></canvas>
-    <div class="flex">
-        <a class="flex-link" href="#start" name="start"> Click Me!</a>
-    </div>
+    <a class="flex" href="#start" name="start"> Click Me!</a>
 </div>
 <nav class="nav-bar">
-    <a class="nav-link" href="#home">Navbar</a>
+    <a class="nav-link" href="#">Navbar</a>
     <div class="nav-menu" id="menu">
         <ul class="nav-menu-list">
             <li class="nav-menu-list-home">
@@ -40,53 +38,56 @@
             </li>
         </ul>
         <form class="nav-form">
-            <input class="nav-form-search" type="text" placeholder="Search">
+            <input class="nav-form-search input" type="text" placeholder="Search">
             <button class="nav-form-btn button" type="submit">Search</button>
         </form>
     </div>
 </nav>
-<div class="main">
+<div id='main' class="main">
     <div class="container" id="start">
         <div class="main-container">
 
             <h1 class="main-container-header">Hello, world!</h1>
             <p class="main-container-text" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto distinctio quas saepe totam ut! Alias asperiores enim est exercitationem hic iusto minima nemo numquam placeat, quos soluta, tempora voluptates.</p>
-            <p><a class="main-container-link" href="#">Learn more &raquo;</a></p>
+            <p><a class="main-container-link" href="#start">Learn more &raquo;</a></p>
         </div>
     </div>
 
 
     <div class="section" id="about">
+        <h2 class="section-title">About</h2>
         <div class="section-main-container">
             <h2 class="section-main-container-title">Lorem</h2>
             <p class="section-main-container-text">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem cumque, dolore, enim et eum id impedit incidunt ipsa iste labore magnam minus nihil nobis odit quas recusandae ullam veniam!Est exercitationem inventore iste nulla, numquam odio quisquam repudiandae sit suscipit. Animi earum excepturi iste maiores maxime, quibusdam quod sit voluptatem. Ab id illo ipsa necessitatibus, quis soluta. Odio, quasi.
             </p>
-            <a class="section-main-container-link" href="#">View on GitHub &raquo;</a>
+            <button class="section-main-container-btn" >Learn More &raquo;</button>
         </div>
         <div class="section-main-container">
             <h2 class="section-main-container-title">JavaScript</h2>
             <p class="section-main-container-text">
                     JavaScript often abbreviated as JS, is a high-level, interpreted programming language. It is a language which is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm. Alongside HTML and CSS, JavaScript is one of the three core technologies of the World Wide Web. JavaScript enables interactive web pages and thus is an essential part of web applications. The vast majority of websites use it, and all major web browsers have a dedicated JavaScript engine to execute it.
             </p>
-            <a class="section-main-container-link" href="#">View on GitHub &raquo;</a>
+            <button class="section-main-container-btn" >Learn More &raquo;</button>
         </div>
         <div class="section-main-container">
             <h2 class="section-main-container-title">HTML5</h2>
             <p class="section-main-container-text">
                     HTML5 is a markup language used for structuring and presenting content on the World Wide Web. It is the fifth and current major version of the HTML standard. It was published in October 2014 by the World Wide Web Consortium (W3C) to improve the language with support for the latest multimedia, while keeping it both easily readable by humans and consistently understood by computers and devices such as web browsers, parsers, etc. HTML5 is intended to subsume not only HTML 4, but also XHTML 1 and DOM Level 2 HTML.
             </p>
-            <a class="section-main-container-link" href="#">View on GitHub &raquo;</a>
+            <button class="section-main-container-btn" >Learn More &raquo;</button>
         </div>
     </div>
     <div id="contact">
-        <h2>Contact</h2>
-        <form>
-            <input type="text">
-            <input type="text">
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            <button class="contact-btn button" type="submit">Submit</button>
-        </form>
+        <div class="form">
+            <h2 class="contact-title">Contact</h2>
+            <form class="contact-form">
+                <label class="contact-form-label"><input class="contact-input input" placeholder="Name" type="text"></label>
+                <label class="contact-form-label"><input class="contact-input input" placeholder="E-mail" type="email"></label>
+                <label class="contact-form-label"><textarea class="contact-textarea input" placeholder="Your Message"></textarea></label>
+                <button class="contact-btn button" type="submit">SUBMIT</button>
+            </form>
+        </div>
     </div>
 </div>
 

@@ -3,8 +3,7 @@ const menu = document.querySelector('.nav-dropdown-menu');
 
 //click on dropdownmenu
 
-show.addEventListener('click', function (e) {
-    e.preventDefault();
+show.addEventListener('click', function () {
     menu.classList.toggle('show');
 });
 
@@ -14,7 +13,36 @@ window.addEventListener('click', function (e) {
     }
 });
 
-const container = document.querySelector('.container');
+
+/////hide and show text
+
+const paragraph = document.getElementsByClassName('section-main-container-text');
+const readMore = document.getElementsByClassName('section-main-container-btn');
+const maxLength = 300;
+
+for (let i = 0; i < readMore.length; i++) {
+
+            let longText = paragraph[i].innerText;
+            let shortText = paragraph[i].innerText.substring(0, maxLength);
+
+            if (paragraph[i].innerText.length > maxLength) {
+                paragraph[i].innerText = shortText;
+            }
+    readMore[i].addEventListener('click', function () {
+
+        if (paragraph[i].innerText.length > maxLength) {
+            paragraph[i].innerText = shortText;
+            readMore[i].innerHTML = 'Learn More &raquo';
+        } else if (paragraph[i].innerText.length <= maxLength) {
+            paragraph[i].innerText = longText;
+            readMore[i].innerHTML = 'Hide Text &laquo';
+        }
+    });
+
+}
+
+
+
 const page = document.querySelectorAll('.section-main-container');
 const form = document.querySelector('.nav-form');
 const input = document.querySelector('.nav-form-search');
@@ -36,7 +64,6 @@ form.addEventListener('submit', function (e) {
         } else {
             page[i].classList.add('hide');
             page[i].classList.remove('show');
-            container.classList.add('hide');
         }
     }
 
@@ -45,19 +72,16 @@ form.addEventListener('submit', function (e) {
 //click on logo
 
 logo.addEventListener('click', function () {
-    container.classList.remove('hide');
-    let p = '';
-    for (let i=0; i<page.length; i++) {
-        p = page[i].querySelectorAll('p')[0];
-        page[i].classList.remove('show');
-        page[i].classList.remove('hide');
-    }
+    window.location.reload();
+    window.scrollTo(0, 0);
 
 });
 
 
+
 const navBar = document.querySelector('.nav-bar');
 const scrollDown = navBar.offsetTop;
+
 
 window.addEventListener('scroll', function () {
     // console.log(document.documentElement.scrollTop+'==='+scrollDown)
@@ -68,23 +92,38 @@ window.addEventListener('scroll', function () {
        document.body.style.paddingTop = '0';
        navBar.classList.remove('fixed');
    }
+
 });
 
 
 ////anchor click
+const anchorLinks = document.querySelectorAll('a[href^="#"]');
+////active  link
 
-
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchorLinks.forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
+        const current = document.querySelector(this.getAttribute('href'));
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
+        current.scrollIntoView({
             behavior: 'smooth',
             block: "start"
         });
     });
 });
+
+
+
+////contact form
+
+const submitBtn = document.querySelector('.contact-btn');
+
+submitBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+});
+
+
+
 
 
 
@@ -102,8 +141,9 @@ canvas.height = window.innerHeight;
 
 const c = canvas.getContext('2d');
 
-//mouse move
 
+
+//mouse move
 let mouse = {
     x:undefined,
     y:undefined
@@ -126,9 +166,8 @@ window.addEventListener('mousemove', function (event) {
     // console.log(mouse);
 });
 
+
 //left click
-
-
 let up = true;
 const maxSpeed = 30;
 const minSpeed = 0.5;
@@ -150,16 +189,16 @@ canvas.addEventListener('click', function () {
 });
 
 
-// right click
 
+// right click
 canvas.addEventListener('contextmenu', function (e) {
     e.preventDefault();
     up = true;
     speed = 0.5;
 });
 
-//resize window
 
+//resize window
 window.addEventListener('resize', function () {
      canvas.width = window.innerWidth;
      canvas.height = window.innerHeight;
