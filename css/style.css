@@ -51,6 +51,11 @@ textarea {
   color: black;
 }
 
+.flex:active {
+  box-shadow: inset 0 0 30pt 5pt #898a8d;
+  transition: 0s;
+}
+
 #canvas {
   display: block;
 }
@@ -355,9 +360,20 @@ textarea {
   font-size: 1.25rem;
   margin-left: 50%;
   transform: translate(-50%);
-
+  outline: none;
 }
 
+.contact-btn:hover {
+  box-shadow: 0 0 3pt 2pt #929396;
+}
+
+.contact-btn:focus {
+  box-shadow: 0 0 3pt 2pt #929396;
+}
+
+.contact-btn:active {
+  background-color: #0068d8;
+}
 /*////////////////////////////*/
 
 .hide {
