@@ -116,10 +116,38 @@ anchorLinks.forEach(anchor => {
 
 ////contact form
 
+const nameInput = document.querySelector('.contact-input-name');
+const emailInput = document.querySelector('.contact-input-email');
+const textAreaInput = document.querySelector('.contact-textarea');
 const submitBtn = document.querySelector('.contact-btn');
+const contactForm = document.querySelector('.contact-form');
 
-submitBtn.addEventListener('click', function (e) {
+contactForm.addEventListener('submit', function (e) {
+
     e.preventDefault();
+
+    let correct = true;
+
+    if (nameInput.value.length < 3) {
+        alert('Name is too short');
+        nameInput.focus();
+        correct = false;
+    }
+    if (emailInput.value.search('@') === -1) {
+        alert("Email must contain @");
+        emailInput.focus();
+        correct = false;
+    }
+    if (textAreaInput.value.length <= 0) {
+        alert('Message is too short');
+        textAreaInput.focus();
+        correct = false;
+    }
+    if (correct) {
+        this.submit();
+        alert('Wiadomość wysłano! :)')
+    }
+
 });
 
 
