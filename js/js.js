@@ -119,7 +119,6 @@ anchorLinks.forEach(anchor => {
 const nameInput = document.querySelector('.contact-input-name');
 const emailInput = document.querySelector('.contact-input-email');
 const textAreaInput = document.querySelector('.contact-textarea');
-const submitBtn = document.querySelector('.contact-btn');
 const contactForm = document.querySelector('.contact-form');
 
 contactForm.addEventListener('submit', function (e) {
@@ -128,32 +127,56 @@ contactForm.addEventListener('submit', function (e) {
 
     let correct = true;
 
-    if (nameInput.value.length < 3) {
-        alert('Name is too short');
+    if (nameInput.value.length < 3 && emailInput.value.search('@') === -1 && textAreaInput.value.length <= 0) {
+        alert('Name is too short\nEmail must contain @\nMessage is too short');
         nameInput.focus();
         correct = false;
     }
-    if (emailInput.value.search('@') === -1) {
+    else if (nameInput.value.length < 3 && emailInput.value.search('@') === -1) {
+        alert("Name is too short\nEmail must contain @");
+        nameInput.focus();
+        correct = false;
+    }
+    else if (nameInput.value.length < 3 && textAreaInput.value.length <= 0) {
+        alert("Name is too short\nMessage is too short");
+        nameInput.focus();
+        correct = false;
+    }
+    else if (nameInput.value.length < 3) {
+        alert("Name is too short");
+        nameInput.focus();
+        correct = false;
+    }
+    else if (emailInput.value.search('@') === -1 && textAreaInput.value.length <= 0) {
+        alert("Email must contain @\nMessage is too short");
+        emailInput.focus();
+        correct = false;
+    }
+    else if (emailInput.value.search('@') === -1) {
         alert("Email must contain @");
         emailInput.focus();
         correct = false;
     }
-    if (textAreaInput.value.length <= 0) {
+    else if (textAreaInput.value.length <= 0) {
         alert('Message is too short');
         textAreaInput.focus();
         correct = false;
     }
     if (correct) {
-        this.submit();
-        alert('Wiadomość wysłano! :)')
+        alert('Wiadomość wysłano! :)');
+        Email.send(emailInput.value,
+            "olcio45@gmail.com",
+            nameInput.value,
+            textAreaInput.value,
+            "smtp.elasticemail.com",
+            "olcio45@gmail.com",
+            "5727c895-54d6-4745-aa39-c2f29a8e07ea");
+        nameInput.value = '';
+        emailInput.value = '';
+        textAreaInput.value = '';
     }
 
 });
-
-
-
-
-
 
 
 

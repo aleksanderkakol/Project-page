@@ -330,7 +330,16 @@ textarea {
 }
 
 .contact-input:focus {
+  background-color: #bebfc3;
   box-shadow: 0 0 3pt 2pt #929396;
+}
+
+.contact-input:-webkit-autofill,
+.contact-input:-webkit-autofill:hover,
+.contact-input:-webkit-autofill:focus,
+.contact-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 100px #bebfc3 inset;
+  -webkit-text-fill-color: white;
 }
 
 .contact-textarea {
