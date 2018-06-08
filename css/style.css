@@ -207,7 +207,7 @@ textarea {
 .footer {
   background-color: #343a40;
   color: white;
-  height: 100px;
+  height: 300px;
 }
 
 .main-container-text {
@@ -308,14 +308,14 @@ textarea {
 }
 
 .contact-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .contact-form {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 50px;
+  padding: 100px;
 }
 
 .contact-form-label {
@@ -391,6 +391,9 @@ textarea {
   right: 0;
   left: 0;
   z-index: 100;
+}
+.active {
+  color: red;
 }
 
 @media screen and (max-width: 425px){

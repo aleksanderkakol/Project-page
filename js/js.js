@@ -97,8 +97,20 @@ const navBar = document.querySelector('.nav-bar');
 const scrollDown = navBar.offsetTop;
 
 
+
+
 window.addEventListener('scroll', function () {
-    // console.log(document.documentElement.scrollTop+'==='+scrollDown)
+
+});
+
+
+
+
+
+window.addEventListener('scroll', function () {
+
+    //sticky navbar
+
    if (document.documentElement.scrollTop >= scrollDown) {
        document.body.style.paddingTop = navBar.offsetHeight + 'px';
        navBar.classList.add('fixed');
@@ -106,6 +118,34 @@ window.addEventListener('scroll', function () {
        document.body.style.paddingTop = '0';
        navBar.classList.remove('fixed');
    }
+
+   //link active
+
+    let windowPos = window.scrollY+1;
+    let startContainer = document.getElementById('start').offsetTop;
+    let aboutContainer = document.getElementById('about').offsetTop;
+    let contactContainer = document.getElementById('contact').offsetTop;
+    let startLink = document.querySelector('.start');
+    let aboutLink = document.querySelector('.about');
+    let contactLink = document.querySelector('.contact');
+
+    if (windowPos > startContainer) {
+        startLink.classList.add('active');
+        aboutLink.classList.remove('active');
+        contactLink.classList.remove('active');
+    }
+    if (windowPos > aboutContainer) {
+        startLink.classList.remove('active');
+        contactLink.classList.remove('active');
+        aboutLink.classList.add('active');
+    }
+    if (windowPos > contactContainer) {
+        aboutLink.classList.remove('active');
+        contactLink.classList.add('active');
+    }
+    if (windowPos < startContainer){
+        startLink.classList.remove('active');
+    }
 
 });
 
@@ -192,8 +232,6 @@ contactForm.addEventListener('submit', function (e) {
 
 });
 
-
-
 //canvas
 
 const canvas = document.querySelector('canvas');
@@ -264,13 +302,13 @@ canvas.addEventListener('contextmenu', function (e) {
 
 
 //resize window
-window.addEventListener('resize', function () {
-     canvas.width = window.innerWidth;
-     canvas.height = window.innerHeight;
+// window.addEventListener('resize', function () {
+//      canvas.width = window.innerWidth;
+//      canvas.height = window.innerHeight;
 
-     animate();
+     // animate();
 
- });
+ // });
 
 ///stars
 function Star() {
@@ -481,3 +519,7 @@ animate();
 //
 // }
 // animate();
+
+
+
+////////////////////////////////////
