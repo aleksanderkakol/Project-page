@@ -277,6 +277,7 @@ textarea {
 .section-main-container-text {
   font-size: 1.5rem;
   margin-right: 20px;
+  transition: all 0.5s;
 }
 
 .section-main-container-title {
@@ -285,7 +286,19 @@ textarea {
 
 #contact {
   background-color: #E9EBEF;
-  padding: 30px 0;
+}
+
+#contact:before {
+  content: '';
+  display: block;
+  height: 0;
+  width: 0;
+  border-right: 49.5vw solid transparent;
+  border-left: 49.5vw solid transparent;
+  border-top: 5vw solid white;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .form {
@@ -377,8 +390,11 @@ textarea {
   top: 0;
   right: 0;
   left: 0;
+  z-index: 100;
 }
 
-.active {
-  color: red;
+@media screen and (max-width: 425px){
+  .animation {
+    display: none;
+  }
 }

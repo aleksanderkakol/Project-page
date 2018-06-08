@@ -23,24 +23,38 @@ const maxLength = 300;
 for (let i = 0; i < readMore.length; i++) {
 
             let longText = paragraph[i].innerText;
+
             let shortText = paragraph[i].innerText.substring(0, maxLength);
 
             if (paragraph[i].innerText.length > maxLength) {
                 paragraph[i].innerText = shortText;
+            } else {
+                readMore[i].style.display = 'none';
             }
+
     readMore[i].addEventListener('click', function () {
 
-        if (paragraph[i].innerText.length > maxLength) {
-            paragraph[i].innerText = shortText;
-            readMore[i].innerHTML = 'Learn More &raquo';
-        } else if (paragraph[i].innerText.length <= maxLength) {
-            paragraph[i].innerText = longText;
-            readMore[i].innerHTML = 'Hide Text &laquo';
-        }
+            if (paragraph[i].innerText.length > maxLength) {
+                paragraph[i].innerText = shortText;
+                readMore[i].innerHTML = 'Learn More &raquo';
+            } else if (paragraph[i].innerText.length <= maxLength) {
+                paragraph[i].innerText = longText;
+                readMore[i].innerHTML = 'Hide Text &laquo';
+            }
     });
 
 }
 
+// let characters = maxLength;
+// setInterval(function () {
+//     if (characters === lengthText) {
+//         clearInterval(this)
+//     } else {
+//         characters++;
+//         paragraph[i].style.transition = '1s';
+//         paragraph[i].innerText = longText.substring(0, characters);
+//     }
+// }, 10);
 
 
 const page = document.querySelectorAll('.section-main-container');
