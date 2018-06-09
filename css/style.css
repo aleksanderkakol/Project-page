@@ -104,6 +104,10 @@ textarea {
   align-items: center;
 }
 
+.nav-menu-list-link:hover {
+  color: #8f8f92;
+}
+
 .nav-btn {
   cursor: pointer;
   display: none;
@@ -130,6 +134,14 @@ textarea {
   text-decoration: none;
   color: white;
   padding-left: 1rem;
+}
+
+.nav-dropdown-link:hover {
+  color: #8f8f92;
+}
+
+.nav-dropdown-link:focus {
+  color: green;
 }
 
 .nav-dropdown-menu {
@@ -177,6 +189,13 @@ textarea {
   color: #28a745;
   background-color: transparent;
   border-color: #28a745;
+  transition: 0.5s;
+}
+
+.nav-form-btn:hover {
+  color: black;
+  background-color: #28a745;
+  border-color: transparent;
 }
 
 .container {
@@ -410,7 +429,7 @@ textarea {
   z-index: 100;
 }
 .active {
-  color: red;
+  color: green;
 }
 
 @media screen and (max-width: 425px){

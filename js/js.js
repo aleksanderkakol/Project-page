@@ -92,8 +92,21 @@ logo.addEventListener('click', function () {
 });
 
 
+const arrow = document.querySelector('.arrow');
+const flexBox = document.querySelector('.flex');
 
+flexBox.addEventListener("mouseover", function () {
+    arrow.style.display = 'inline-block';
+    arrow.style.transition = '1s';
+    arrow.style.color = 'black';
+    arrow.style.transform = 'rotate(90deg)';
+});
 
+flexBox.addEventListener("mouseout", function () {
+    arrow.style.transition = '1s';
+    arrow.style.transform = 'rotate(0deg)';
+    arrow.style.color = 'white';
+});
 
 
 const navBar = document.querySelector('.nav-bar');
