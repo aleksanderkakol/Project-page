@@ -207,7 +207,6 @@ textarea {
 .footer {
   background-color: #343a40;
   color: white;
-  height: 300px;
 }
 
 .main-container-text {
@@ -286,6 +285,7 @@ textarea {
 
 #contact {
   background-color: #E9EBEF;
+  padding-bottom: 200px;
 }
 
 #contact:before {
@@ -374,6 +374,23 @@ textarea {
 
 .contact-btn:active {
   background-color: #0068d8;
+}
+
+.top {
+  display: none;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: 10px 20px;
+  border-radius: 50%;
+  font-size: 3rem;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+}
+
+.top:hover {
+  opacity: 0.9;
 }
 /*////////////////////////////*/
 

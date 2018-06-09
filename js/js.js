@@ -93,14 +93,17 @@ logo.addEventListener('click', function () {
 
 
 
+
+
+
 const navBar = document.querySelector('.nav-bar');
 const scrollDown = navBar.offsetTop;
+const toTop = document.querySelector('.top');
 
+//click and go to top of page
 
-
-
-window.addEventListener('scroll', function () {
-
+toTop.addEventListener('click', function () {
+    document.documentElement.scrollTop = 0;
 });
 
 
@@ -114,9 +117,11 @@ window.addEventListener('scroll', function () {
    if (document.documentElement.scrollTop >= scrollDown) {
        document.body.style.paddingTop = navBar.offsetHeight + 'px';
        navBar.classList.add('fixed');
+       toTop.classList.add('show');
    } else {
        document.body.style.paddingTop = '0';
        navBar.classList.remove('fixed');
+       toTop.classList.remove('show');
    }
 
    //link active
