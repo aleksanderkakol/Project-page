@@ -116,11 +116,12 @@ const toTop = document.querySelector('.top');
 //click and go to top of page
 
 toTop.addEventListener('click', function () {
-    document.documentElement.scrollTop = 0;
+
+   document.documentElement.scrollIntoView({
+       behavior: "smooth",
+       block: "start"
+   })
 });
-
-
-
 
 
 window.addEventListener('scroll', function () {
