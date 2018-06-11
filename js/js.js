@@ -131,16 +131,16 @@ toTop.addEventListener('click', function () {
 });
 
 
-let isMobile;
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    isMobile = true;
-}
-
-if (isMobile) {toTop.style.display = 'none';}
-
 window.addEventListener('scroll', function () {
 
     //sticky navbar
+    let isMobile;
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        isMobile = true;
+    }
+
+
+
 
    if (document.documentElement.scrollTop >= scrollDown) {
        document.body.style.paddingTop = navBar.offsetHeight + 'px';
@@ -150,7 +150,7 @@ window.addEventListener('scroll', function () {
        document.body.style.paddingTop = '0';
        navBar.classList.remove('fixed');
        toTop.classList.remove('show');
-   }
+   } if (isMobile) {toTop.classList.add('hide');}
 
    //link active
 
