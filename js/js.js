@@ -136,7 +136,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     isMobile = true;
 }
 
-if (isMobile) {console.log('hej')}
+if (isMobile) {toTop.style.display = 'none';}
 
 window.addEventListener('scroll', function () {
 
