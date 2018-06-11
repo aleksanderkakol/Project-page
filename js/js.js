@@ -45,6 +45,9 @@ for (let i = 0; i < readMore.length; i++) {
 
 }
 
+
+///////////slowly writings characters
+
 // let characters = maxLength;
 // setInterval(function () {
 //     if (characters === lengthText) {
@@ -54,7 +57,7 @@ for (let i = 0; i < readMore.length; i++) {
 //         paragraph[i].style.transition = '1s';
 //         paragraph[i].innerText = longText.substring(0, characters);
 //     }
-// }, 10);
+// }, 100);
 
 
 const page = document.querySelectorAll('.section-main-container');
@@ -92,6 +95,8 @@ logo.addEventListener('click', function () {
 });
 
 
+//div on animation
+
 const arrow = document.querySelector('.arrow');
 const flexBox = document.querySelector('.flex');
 
@@ -109,11 +114,13 @@ flexBox.addEventListener("mouseout", function () {
 });
 
 
+
+//click and go to top of page
+
 const navBar = document.querySelector('.nav-bar');
 const scrollDown = navBar.offsetTop;
 const toTop = document.querySelector('.top');
 
-//click and go to top of page
 
 toTop.addEventListener('click', function () {
 
@@ -122,6 +129,7 @@ toTop.addEventListener('click', function () {
        block: "start"
    })
 });
+
 
 
 window.addEventListener('scroll', function () {
@@ -171,7 +179,7 @@ window.addEventListener('scroll', function () {
 
 ////anchor click
 const anchorLinks = document.querySelectorAll('a[href^="#"]');
-////active  link
+
 
 anchorLinks.forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -251,6 +259,8 @@ contactForm.addEventListener('submit', function (e) {
 
 });
 
+
+
 //canvas
 
 const canvas = document.querySelector('canvas');
@@ -265,12 +275,8 @@ const c = canvas.getContext('2d');
 
 
 
-//mouse move
-let mouse = {
-    x:undefined,
-    y:undefined
-};
-const numStars = 1000;
+
+const numStars = 1111;
 let stars = [];
 let size = 1;
 let fl = canvas.width;
@@ -281,11 +287,18 @@ const maxRadius = 10;
 const minRadius = 2;
 const distance = 80;
 
+
+
+//mouse move
+let mouse = {
+    x:undefined,
+    y:undefined
+};
+
 window.addEventListener('mousemove', function (event) {
     mouse.x = event.x + document.documentElement.scrollLeft;
     mouse.y = event.y + document.documentElement.scrollTop;
 
-    // console.log(mouse);
 });
 
 
