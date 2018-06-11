@@ -69,6 +69,7 @@ textarea {
   padding: .5rem 1rem;
   color: #212529;
   background-color: #343a40;
+  z-index: 10;
 }
 
 .nav-menu {
@@ -411,26 +412,6 @@ textarea {
 .top:hover {
   opacity: 0.9;
 }
-/*////////////////////////////*/
-
-.hide {
-  display: none;
-}
-
-.show {
-  display: inline-block;
-}
-
-.fixed {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 100;
-}
-.active {
-  color: green;
-}
 
 @media screen and (max-width: 480px){
 
@@ -446,21 +427,62 @@ textarea {
     flex-wrap: wrap;
   }
 
-  .nav-dropdown {
-    display: none;
-  }
-
-  .main-container {
+  .nav-menu-list {
     display: flex;
     flex-wrap: wrap;
   }
 
+  .nav-menu-list-home {
+    flex-grow: 1;
+  }
+
+  .nav-menu-list-about {
+    flex-grow: 1;
+  }
+
+  .nav-menu-list-contact {
+    flex-grow: 1;
+  }
+
+  .nav-dropdown {
+    display: none;
+    width: 100%;
+  }
+
+  .nav-dropdown-link {
+    display: none;
+  }
+
+  .nav-dropdown-link:after {
+    display: none;
+  }
+
+  .nav-dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    /*background-color: transparent;*/
+    border: 0;
+  }
+
+  .nav-dropdown-menu-item {
+    width: 100%;
+  }
+
   .nav-bar {
+    display: flex;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     z-index: 100;
+  }
+
+  .nav-link {
+    display: flex;
+    align-self: flex-start;
   }
 
   .main-container {
@@ -495,4 +517,27 @@ textarea {
   .contact-form-label {
     width: 100%;
   }
+}
+
+
+/*////////////////////////////*/
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: inline-block;
+  visibility: visible;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+}
+.active {
+  color: green;
 }
