@@ -146,11 +146,13 @@ window.addEventListener('scroll', function () {
        document.body.style.paddingTop = navBar.offsetHeight + 'px';
        navBar.classList.add('fixed');
        toTop.classList.add('show');
+   } if (mobilecheck()) {
+       toTop.classList.remove('show');
    } else {
        document.body.style.paddingTop = '0';
        navBar.classList.remove('fixed');
        toTop.classList.remove('show');
-   } if (mobilecheck()) {toTop.classList.add('hide');}
+   }
 
    //link active
 
