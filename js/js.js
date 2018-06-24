@@ -263,14 +263,15 @@ contactForm.addEventListener('submit', function (e) {
         correct = false;
     }
     if (correct) {
-        alert('Wiadomość wysłano! :)');
-        Email.send(emailInput.value,
-            "olcio45@gmail.com",
-            nameInput.value,
-            textAreaInput.value,
-            "smtp.elasticemail.com",
-            "olcio45@gmail.com",
-            "5727c895-54d6-4745-aa39-c2f29a8e07ea");
+        let http = new XMLHttpRequest();
+        http.open("POST", "https://script.google.com/macros/s/AKfycbzzi9T6NCnqBi-LiRk8lCHb3MB7wRLhZIvQr71u9Q/exec", true);
+        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        let params = 'Name: '+nameInput.value + 'E-mail: '+emailInput.value +'Message: '+textAreaInput.value;
+        http.send(params);
+        http.onload = function () {
+            alert('Wiadomość wysłano! :)');
+            console.log(http.responseText);
+        };
         nameInput.value = '';
         emailInput.value = '';
         textAreaInput.value = '';
