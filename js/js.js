@@ -265,7 +265,7 @@ contactForm.addEventListener('submit', function (e) {
     if (correct) {
         let http = new XMLHttpRequest();
         http.open("POST", "https://script.google.com/macros/s/AKfycbzzi9T6NCnqBi-LiRk8lCHb3MB7wRLhZIvQr71u9Q/exec", true);
-        http.setRequestHeader('Content-type', 'text/html; charset=ISO-8859-2');
+        http.setRequestHeader('Content-type', 'text/html');
         let params = 'Name: '+nameInput.value + 'E-mail: '+emailInput.value +'Message: '+textAreaInput.value;
         http.send(params);
         http.onload = function () {
