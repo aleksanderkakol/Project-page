@@ -268,6 +268,7 @@ contactForm.addEventListener('submit', function (e) {
         http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         let params = 'Name: '+nameInput.value + 'E-mail: '+emailInput.value +'Message: '+textAreaInput.value;
         http.send(params);
+        xmlHttp.overrideMimeType('text/html; charset=ISO-8859-2');
         http.onload = function () {
             alert('Wiadomość wysłano! :)');
             console.log(http.responseText);
