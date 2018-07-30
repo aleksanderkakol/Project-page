@@ -12,7 +12,7 @@ const show = document.querySelector('.nav-dropdown-link');
 const menu = document.querySelector('.nav-dropdown-menu');
 const dropdownLink = document.querySelector('.nav-dropdown');
 
-//click on dropdownmenu
+                //click on dropdownmenu
 
 show.addEventListener('click', function () {
     menu.classList.toggle('show');
@@ -25,7 +25,7 @@ window.addEventListener('click', function (e) {
 });
 
 
-/////hide and show text
+                    /////hide and show text
 
 const paragraph = document.getElementsByClassName('section-main-container-text');
 const readMore = document.getElementsByClassName('section-main-container-btn');
@@ -76,7 +76,7 @@ const form = document.querySelector('.nav-form');
 const input = document.querySelector('.nav-form-search');
 const logo = document.querySelector('.nav-link');
 
-//search input
+                //search input
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -97,7 +97,7 @@ form.addEventListener('submit', function (e) {
 
 });
 
-//click on logo
+                //click on logo
 
 logo.addEventListener('click', function (e) {
     e.preventDefault();
@@ -111,7 +111,7 @@ logo.addEventListener('click', function (e) {
 });
 
 
-//div on animation
+                //Center box animation
 
 const arrow = document.querySelector('.arrow');
 const flexBox = document.querySelector('.flex');
@@ -131,7 +131,7 @@ flexBox.addEventListener("mouseout", function () {
 
 
 
-//click and go to top of page
+                //click and go to top of page
 
 const navBar = document.querySelector('.nav-bar');
 const scrollDown = navBar.offsetTop;
@@ -150,7 +150,7 @@ toTop.addEventListener('click', function () {
 
 window.addEventListener('scroll', function () {
 
-    //sticky navbar
+                //sticky navbar
 
    if (document.documentElement.scrollTop >= scrollDown) {
        document.body.style.paddingTop = navBar.offsetHeight + 'px';
@@ -165,7 +165,7 @@ window.addEventListener('scroll', function () {
        toTop.classList.remove('show');
    }
 
-   //link active
+            //link active
 
     let windowPos = window.scrollY+1;
     let startContainer = document.getElementById('start').offsetTop;
@@ -196,7 +196,9 @@ window.addEventListener('scroll', function () {
 });
 
 
-////anchor click
+                ////anchor click
+
+
 const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
 
@@ -214,7 +216,7 @@ anchorLinks.forEach(anchor => {
 
 
 
-////contact form
+                    ////contact form
 
 const nameInput = document.querySelector('.contact-input-name');
 const emailInput = document.querySelector('.contact-input-email');
@@ -281,7 +283,7 @@ contactForm.addEventListener('submit', function (e) {
 
 
 
-//canvas
+                //canvas
 
 const canvas = document.querySelector('canvas');
 
@@ -309,7 +311,8 @@ const distance = 80;
 
 
 
-//mouse move
+            //mouse move
+
 let mouse = {
     x:undefined,
     y:undefined
@@ -322,7 +325,8 @@ window.addEventListener('mousemove', function (event) {
 });
 
 
-//left click
+            //left click
+
 let up = true;
 const maxSpeed = 30;
 const minSpeed = 0.5;
@@ -344,12 +348,31 @@ canvas.addEventListener('click', function () {
 });
 
 
+                // right click
 
-// right click
 canvas.addEventListener('contextmenu', function (e) {
     e.preventDefault();
     up = true;
     speed = 0.5;
+});
+
+                // tooltip
+
+let tooltipSpan = document.querySelector('.tooltip');
+let timeout;
+canvas.addEventListener('mousemove', function () {
+
+    tooltipSpan.classList.remove('show');
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+        tooltipSpan.style.top = (mouse.y + 20)+ 'px';
+        tooltipSpan.style.left = (mouse.x + 20)+ 'px';
+        tooltipSpan.classList.add('show');
+        }, 2500);
+});
+
+canvas.addEventListener('mouseout', function () {
+    clearTimeout(timeout);
 });
 
 
@@ -444,134 +467,4 @@ function animate() {
 
 animate();
 
-/////////////////////////////////////////////////////
 
-//
-//
-// var mouse = {
-//     x: undefined,
-//     y: undefined
-// };
-//
-// var maxRadius = 50;
-// // var minRadius = 2;
-//
-// var colorArray = [
-//     '#1C1C1C',
-//     '#00007F',
-//     '#4775FF',
-//     '#FFD600',
-//     '#FF0000'
-// ];
-//
-// window.addEventListener('mousemove', function (event) {
-//     // console.log(event)
-//     mouse.x = event.x + document.documentElement.scrollLeft;
-//     mouse.y = event.y + document.documentElement.scrollTop;
-// });
-//
-//
-// window.addEventListener('resize', function () {
-//     canvas.width = window.innerWidth;
-//     canvas.height = window.innerHeight;
-//
-//     init();
-//
-// });
-//
-//
-// function Circle(x, y, dx, dy, radius) {
-//     this.x = x;
-//     this.y = y;
-//     this.dx = dx;
-//     this.dy = dy;
-//     this.radius = radius;
-//     this.minRadius = radius;
-//     this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
-//
-//     this.draw = function () {
-//         c.beginPath();
-//         c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-//         c.strokeStyle = 'red';
-//         c.fillStyle = this.color;
-//         c.fill();
-//     };
-//
-//     this.update = function () {
-//         if (this.x + this.radius > innerWidth || this.x - this.radius < 0){
-//             this.dx = -this.dx;
-//         }
-//         if (this.y + this.radius > innerHeight || this.y - this.radius < 0){
-//             this.dy = -this.dy;
-//         }
-//         this.x += this.dx;
-//         this.y += this.dy;
-//
-//
-//         //mousemove
-//
-//
-//         if (mouse.x - this.x < 50 && mouse.x - this.x > -50 && mouse.y - this.y < 50 && mouse.y - this.y > -50) {
-//             if (this.radius < maxRadius){
-//             this.radius +=1;
-//             }
-//         } else if (this.radius > this.minRadius) {
-//             this.radius -= 1;
-//         }
-//
-//
-//
-//         this.draw();
-//     }
-//
-// }
-//
-// var circleArray = [];
-//
-// for (var i=0; i<1000; i++) {
-//     var radius = Math.random() * 3 + 1;
-//     var x = Math.random()*(innerWidth - radius * 2) + radius;
-//     var y = Math.random()*(innerHeight - radius * 2) + radius;
-//     var dx = (Math.random()- 0.5);
-//     var dy = (Math.random()- 0.5);
-//
-//     circleArray.push(new Circle(x, y, dx, dy, radius));
-// }
-//
-//
-//
-//
-//
-// function init() {
-//
-//     circleArray = [];
-//
-//     for (var i=0; i<1000; i++) {
-//         var radius = Math.random() * 3 + 1;
-//         var x = Math.random()*(innerWidth - radius * 2) + radius;
-//         var y = Math.random()*(innerHeight - radius * 2) + radius;
-//         var dx = (Math.random()- 0.5);
-//         var dy = (Math.random()- 0.5);
-//
-//         circleArray.push(new Circle(x, y, dx, dy, radius));
-//     }
-// }
-//
-// // console.log(circleArray);
-//
-//
-//
-// function animate() {
-//     requestAnimationFrame(animate);
-//     c.clearRect(0, 0, innerWidth, innerHeight);
-//
-//     for (var i=0; i < circleArray.length; i++) {
-//         circleArray[i].update();
-//     }
-//
-// }
-// animate();
-
-
-
-////////////////////////////////////
