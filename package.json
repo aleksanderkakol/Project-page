@@ -1,0 +1,25 @@
+{
+  "name": "project-page",
+  "version": "1.0.0",
+  "description": "Sample app using nodemailer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleksanderkakol/Project-page.git"
+  },
+  "author": "Aleksander K",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aleksanderkakol/Project-page/issues"
+  },
+  "homepage": "https://github.com/aleksanderkakol/Project-page#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "nodemailer": "^4.6.8"
+  }
+}
