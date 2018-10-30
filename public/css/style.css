@@ -323,8 +323,8 @@ textarea {
   display: block;
   height: 0;
   width: 0;
-  border-right: 49.5vw solid transparent;
-  border-left: 49.5vw solid transparent;
+  border-right: 49vw solid transparent;
+  border-left: 49vw solid transparent;
   border-top: 5vw solid white;
   position: relative;
   left: 50%;
