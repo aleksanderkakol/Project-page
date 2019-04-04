@@ -11,6 +11,10 @@ textarea {
   resize: none;
 }
 
+a {
+    color: black;
+}
+
 .input {
   padding: .375rem .75rem;
   font-size: 1rem;
