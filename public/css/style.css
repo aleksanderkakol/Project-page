@@ -47,7 +47,7 @@ textarea {
   left: 50vw;
   transform: translate(-50%);
   border: 2px solid white;
-  transition: background 1s color 1s;
+  transition: background-color 1s, color 1s;
   padding: 20px 50px;
   text-decoration: none;
   color: white;
