@@ -301,7 +301,7 @@ const c = canvas.getContext('2d');
 
 
 
-const numStars = 11111;
+const numStars = 1111;
 let stars = [];
 let size = 1;
 let fl = canvas.width;
